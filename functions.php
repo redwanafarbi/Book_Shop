@@ -4,7 +4,18 @@ function fetch_data_from_database(){
     $booksJson = file_get_contents('books.json');
     $books = json_decode($booksJson, true);
     $filtered_books = array_filter($books, function ($book){
-        return strpos($book["title"],$_GET["query"]) !== false;
+        if(strpos($book["title"],$_GET["query"]) !== false)
+        {
+          return true;
+        }
+        else if(strpos($book["author"],$_GET["query"]) !== false)
+        {
+            return true;
+        }
+        else if(strpos($book["isbn"],$_GET["query"]) !== false)
+        {
+            return true;
+        }
     });
     return $filtered_books;
 }

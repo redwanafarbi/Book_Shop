@@ -1,8 +1,11 @@
 *{
     margin: 0;
     padding: 0;
+    text-align: center;
 }
-
+table{
+    margin: auto;
+}
 table,
 th,
 td {
